@@ -5,7 +5,7 @@ class Sudoku {
     this.grid = new Grid(n, m);
   }
 
-  toString() {
+  public toString(): string {
     return this.grid.toString();
   }
 }
@@ -23,12 +23,12 @@ class Grid {
     });
   }
 
-  toString() {
+  public toString(): string {
     const field: string[] = [];
     const separator = new Array(this.m + 1).fill('+').join('-');
     field.push(separator);
     this.grid.forEach((e) => {
-      field.push('|' + e.map((e) => '' + e).join('|') + '|');
+      field.push('|' + e.join('|') + '|');
       field.push(separator);
     });
     return field.join('\n');
@@ -48,10 +48,10 @@ class Cell {
     this.value = value || (Math.random() * 10) | 0;
   }
 
-  toString() {
-    return this.value || ' ';
+  public toString(): string {
+    return this.value ? '' + this.value : ' ';
   }
 }
 
 const sudoku = new Sudoku(5, 8);
-console.log(sudoku.toString());
+console.log(`${sudoku}`);

@@ -1,0 +1,15 @@
+{
+  "name": "sudoku_solver",
+  "version": "1.0.0",
+  "description": "Sudoku solver",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node sudoku_solver.ts"
+  },
+  "keywords": [],
+  "author": "WebDev402",
+  "devDependencies": {
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  }
+}

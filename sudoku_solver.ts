@@ -1,16 +1,4 @@
 class Sudoku {
-  grid: Grid;
-
-  constructor(n: number, m: number) {
-    this.grid = new Grid(n, m);
-  }
-
-  public toString(): string {
-    return this.grid.toString();
-  }
-}
-
-class Grid {
   grid: Cell[][];
   m: number;
   n: number;

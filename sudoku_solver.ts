@@ -1,49 +1,16 @@
-const FIELD_SIZE = 9;
+import { FIELD_SIZE, validate } from './src/validator';
 
 class SudokuSolver {
   field: Cell[][];
 
   constructor(initValues: number[][]) {
-    const [isValid, message] = this.isValidInitValues(initValues);
-    if (!isValid) {
-      throw new Error(message);
-    }
+    validate(initValues);
 
     this.field = new Array(FIELD_SIZE).fill(0).map((_, x) => {
       return new Array(FIELD_SIZE)
         .fill(0)
         .map((_, y) => new Cell(x, y, initValues[x][y]));
     });
-  }
-
-  private isValidInitValues(initValues: number[][]): [boolean, string] {
-    if (!Array.isArray(initValues)) {
-      return [false, 'Initialize value is not an array'];
-    }
-
-    if (initValues.length !== FIELD_SIZE) {
-      return [false, 'Initialize value length is not correct'];
-    }
-
-    if (!initValues.every((e) => Array.isArray(e))) {
-      return [false, 'Initialize value contain incorrect type item'];
-    }
-
-    if (!initValues.every((e) => e.length === FIELD_SIZE)) {
-      return [false, 'Initialize value item has incorrect length'];
-    }
-
-    if (
-      !initValues.every((e) =>
-        e.every((e) => {
-          return Number.isSafeInteger(e) && e >= 0 && e < 10;
-        })
-      )
-    ) {
-      return [false, 'Initialize value item contain incorrect value'];
-    }
-
-    return [true, ''];
   }
 
   public toString(): string {

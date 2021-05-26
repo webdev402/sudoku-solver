@@ -1,7 +1,5 @@
-*
-
-!.gitignore
-!package.json
-!package-lock.json
-!sudoku_solver.ts
-!tsconfig.json
+.nyc_output
+.vscode
+.yarn
+coverage
+node_modules
